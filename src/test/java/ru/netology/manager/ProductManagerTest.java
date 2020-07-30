@@ -53,22 +53,24 @@ class ProductManagerTest {
 
     @Test
     public void shouldBeBookFoundIfDoesNotExist(){// Следует найти книгу по несуществующим данным
-
         manager.add(sixth);
-        manager.matches(product,"version1");
-        manager.matches(product,"Apple");
+        boolean firstResult = manager.matches(product,"version1");
+        boolean secondResult = manager.matches(product,"Apple");
         Product[] actual = manager.searchBy("OscarWilde");
         Product[] expected = new Product[]{};
+        assertFalse(firstResult);
+        assertFalse(secondResult);
         assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldBeSmartphoneFoundIfDoesNotExist(){// Следует найти смартфон по несуществующим данным
-
         manager.add(third);
-        manager.matches(product,"version1");
-        manager.matches(product,"Apple");
+        boolean firstResult = manager.matches(product,"version1");
+        boolean fourthResult = manager.matches(product,"OscarWilde");
         Product[] actual = manager.searchBy("Apple");
+        assertFalse(firstResult);
+        assertFalse(fourthResult);
         Product[] expected = new Product[]{};
         assertArrayEquals(expected, actual);
     }
