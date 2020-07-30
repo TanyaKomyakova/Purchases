@@ -53,9 +53,7 @@ class ProductManagerTest {
 
     @Test
     public void shouldBeBookFoundIfDoesNotExist(){// Следует найти книгу по несуществующим данным
-
         manager.add(sixth);
-
         Product[] actual = manager.searchBy("OscarWilde");
         Product[] expected = new Product[]{};
         assertArrayEquals(expected, actual);
@@ -63,9 +61,7 @@ class ProductManagerTest {
 
     @Test
     public void shouldBeSmartphoneFoundIfDoesNotExist(){// Следует найти смартфон по несуществующим данным
-
         manager.add(third);
-
         Product[] actual = manager.searchBy("Apple");
         Product[] expected = new Product[]{};
         assertArrayEquals(expected, actual);
